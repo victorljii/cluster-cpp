@@ -1,0 +1,6 @@
+# ninja log v5
+3	841	7255184747808959	CMakeFiles/cluster_cpp.dir/main.cpp.obj	678d685a245b0ac4
+939	1549	7255184754714212	cluster_cpp.exe	b9ff5933314beb62
+28	939	7255184748760764	CMakeFiles/cluster_cpp.dir/DataReader.cpp.obj	f895b213f88a2773
+3	2205	7251745971955409	CMakeFiles/cluster_cpp.dir/jsoncpp.cpp.obj	b4f1c17d8d2f2669
+1	221	7255196659997396	build.ninja	72a5f202137e75b3
