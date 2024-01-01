@@ -9,8 +9,8 @@
 
 class Levenshtein {
 public:
-    double ratio(const std::string &str1, const std::string &str2);
-    int dist(const std::string &str1, const std::string &str2);
+    static double ratio(const std::string &str1, const std::string &str2);
+    static int dist(const std::string &str1, const std::string &str2);
 
 };
 

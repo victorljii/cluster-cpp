@@ -18,7 +18,7 @@ public:
         path = path_;
     }
 
-    void ReadFelixnEntity(std::vector<FelixnEntity> &);
+    void ReadFelixnEntity(std::vector<FelixnEntity> &, int);
 
 private:
     std::string path;

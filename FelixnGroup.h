@@ -6,29 +6,61 @@
 #define CLUSTER_CPP_FELIXNGROUP_H
 
 #include <vector>
+#include <iostream>
 #include "FelixnEntity.h"
+#include "Levenshtein.h"
 
 class FelixnGroup {
 public:
     FelixnGroup() = default;
 
-    void findCenter() {
-        if (group.size() <= 2) {
-            center = 0;
-            return;
+    void insert(FelixnEntity entity) {
+        double newSum = 0;
+        for (int i = 0; i < size; i++) {
+            double ratio = Levenshtein::ratio(group[i].getFullPath(), entity.getFullPath());
+            newSum += ratio;
+            radioSum[i] += ratio;
+        }
+
+        size++;
+        group.push_back(entity);
+        radioSum.push_back(newSum);
+
+        findCenter();
+    }
+
+    double calDist(FelixnEntity &entity) {
+        return Levenshtein::ratio(entity.getFullPath(), group[center].getFullPath());
+    }
+
+    double centerDist() {
+        return radioSum[center];
+    }
+
+    void display() {
+        for (FelixnEntity entity : group) {
+            std::cout << entity.getFullPath() << std::endl;
         }
     }
 
-    // TODO: 深入理解右值引用
-    void insert(FelixnEntity &&entity) {
-        group.push_back(entity);
-
-
-    }
 private:
     std::vector<FelixnEntity> group;
     std::vector<double> radioSum;
+    int size;
     int center;
+
+    void findCenter() {
+        center = 0;
+        if (size <= 2) {
+            return;
+        }
+
+        for (int i = 1; i < size; i++) {
+            if (radioSum[i] < radioSum[center]) {
+                center = i;
+            }
+        }
+    }
 };
 
 #endif //CLUSTER_CPP_FELIXNGROUP_H

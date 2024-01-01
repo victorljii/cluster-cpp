@@ -26,7 +26,7 @@ int Levenshtein::dist(const std::string &str1, const std::string &str2) {
         }
     }
 
-    return dp[n1][n2];
+    return dp[n1 - 1][n2 - 1];
 }
 
 double Levenshtein::ratio(const std::string &str1, const std::string &str2) {

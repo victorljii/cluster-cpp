@@ -5,6 +5,6 @@
 #ifndef CLUSTER_CPP_CONSTANTS_H
 #define CLUSTER_CPP_CONSTANTS_H
 
-const double LEVEN_RATIO_LIMIT = 0.5;
+static double LEVEN_RATIO_LIMIT = 0.1;
 
 #endif //CLUSTER_CPP_CONSTANTS_H
